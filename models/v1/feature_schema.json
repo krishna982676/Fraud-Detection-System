@@ -1,0 +1,126 @@
+{
+  "datasetName" : "Model A (creditcard.csv)",
+  "numAttributes" : 30,
+  "attributes" : [ {
+    "index" : 0,
+    "name" : "V1",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 1,
+    "name" : "V2",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 2,
+    "name" : "V3",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 3,
+    "name" : "V4",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 4,
+    "name" : "V5",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 5,
+    "name" : "V6",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 6,
+    "name" : "V7",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 7,
+    "name" : "V8",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 8,
+    "name" : "V9",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 9,
+    "name" : "V10",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 10,
+    "name" : "V11",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 11,
+    "name" : "V12",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 12,
+    "name" : "V13",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 13,
+    "name" : "V14",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 14,
+    "name" : "V15",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 15,
+    "name" : "V16",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 16,
+    "name" : "V17",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 17,
+    "name" : "V18",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 18,
+    "name" : "V19",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 19,
+    "name" : "V20",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 20,
+    "name" : "V21",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 21,
+    "name" : "V22",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 22,
+    "name" : "V23",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 23,
+    "name" : "V24",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 24,
+    "name" : "V25",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 25,
+    "name" : "V26",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 26,
+    "name" : "V27",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 27,
+    "name" : "V28",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 28,
+    "name" : "Amount",
+    "type" : "NUMERIC"
+  }, {
+    "index" : 29,
+    "name" : "Class",
+    "type" : "NOMINAL",
+    "values" : [ "LEGIT", "FRAUD" ]
+  } ]
+}

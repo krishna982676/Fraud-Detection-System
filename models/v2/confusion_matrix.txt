@@ -1,0 +1,5 @@
+=== TEST SET CONFUSION MATRIX: Model B (Fraud Detection Dataset.csv) ===
+                 Predicted Legit    Predicted Fraud
+Actual Legit:              5,006              4,692
+Actual Fraud:                245                257
+

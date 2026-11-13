@@ -1,0 +1,8 @@
+{
+  "matrix" : [ [ 5006, 4692 ], [ 245, 257 ] ],
+  "labels" : [ "LEGIT", "FRAUD" ],
+  "trueNegatives" : 5006,
+  "falsePositives" : 4692,
+  "falseNegatives" : 245,
+  "truePositives" : 257
+}

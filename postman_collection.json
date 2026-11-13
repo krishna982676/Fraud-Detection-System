@@ -1,0 +1,195 @@
+{
+  "info": {
+    "name": "Fraud Detection System API (Enterprise Edition)",
+    "_postman_id": "7b8f9a2e-4b91-4c19-9182-3d5f4cb7e002",
+    "description": "Comprehensive Postman collection for the upgraded Fraud Detection System, covering hybrid ML & rules scoring, user profiling, alert merging, feedback loops, and threshold sweep evaluation.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Analyze Single Transaction (Hybrid Scoring & Explainability)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"USER-1002\",\n  \"amount\": 3950.00,\n  \"merchantCategory\": \"TRANSFER\",\n  \"location\": \"DUBAI\",\n  \"deviceType\": \"WEB\",\n  \"hourOfDay\": 2,\n  \"distanceFromHome\": 5500.0,\n  \"txnCountLast24h\": 14,\n  \"isInternational\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/analyze",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "transactions", "analyze"]
+        }
+      }
+    },
+    {
+      "name": "2. Get User Behavior Profile and History",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/user/USER-1002",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "transactions", "user", "USER-1002"]
+        }
+      }
+    },
+    {
+      "name": "3. Analyze Batch Transactions (Max 500)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"userId\": \"USER-1001\",\n    \"amount\": 18.50,\n    \"merchantCategory\": \"DINING\",\n    \"location\": \"NEW_YORK\",\n    \"deviceType\": \"POS\",\n    \"hourOfDay\": 12,\n    \"distanceFromHome\": 1.5,\n    \"txnCountLast24h\": 1,\n    \"isInternational\": false\n  },\n  {\n    \"userId\": \"USER-1002\",\n    \"amount\": 4200.00,\n    \"merchantCategory\": \"LUXURY\",\n    \"location\": \"SINGAPORE\",\n    \"deviceType\": \"ATM\",\n    \"hourOfDay\": 3,\n    \"distanceFromHome\": 6200.0,\n    \"txnCountLast24h\": 18,\n    \"isInternational\": true\n  }\n]"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/batch",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "transactions", "batch"]
+        }
+      }
+    },
+    {
+      "name": "4. Get Transaction History (Paginated)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/transactions?page=0&size=20",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "transactions"],
+          "query": [
+            { "key": "page", "value": "0" },
+            { "key": "size", "value": "20" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "5. Get Security Alerts (Filter: OPEN / ESCALATED / REVIEWED / DISMISSED)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/alerts?status=OPEN",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "alerts"],
+          "query": [
+            { "key": "status", "value": "OPEN" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "6. Update Alert Status (PATCH with Auto-Escalation Support)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"REVIEWED\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/alerts/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "alerts", "1"]
+        }
+      }
+    },
+    {
+      "name": "7. Submit Analyst Feedback (Feedback Loop)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"alertId\": 1,\n  \"isActualFraud\": true,\n  \"notes\": \"Confirmed stolen card credential used from international IP\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/alerts/feedback",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "alerts", "feedback"]
+        }
+      }
+    },
+    {
+      "name": "8. Get Benchmark Metrics (RF vs J48 vs Logistic)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/model/metrics",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "model", "metrics"]
+        }
+      }
+    },
+    {
+      "name": "9. Get Threshold Sweep Precision/Recall Curve",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/model/threshold-sweep",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "model", "threshold-sweep"]
+        }
+      }
+    },
+    {
+      "name": "10. Retrain Model Incorporating Analyst Feedback",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/model/retrain-from-feedback",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "model", "retrain-from-feedback"]
+        }
+      }
+    },
+    {
+      "name": "11. Get System Statistics (Single Source of Truth)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/stats",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "stats"]
+        }
+      }
+    }
+  ]
+}

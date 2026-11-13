@@ -1,0 +1,97 @@
+{
+  "optimalThreshold" : 0.2,
+  "validationBestF1" : 0.0957,
+  "precisionAtOptimal" : 0.0528,
+  "recallAtOptimal" : 0.5087,
+  "sweep" : [ {
+    "threshold" : 0.05,
+    "precision" : 0.0492,
+    "recall" : 0.9526,
+    "f1Score" : 0.0936
+  }, {
+    "threshold" : 0.1,
+    "precision" : 0.0495,
+    "recall" : 0.8329,
+    "f1Score" : 0.0935
+  }, {
+    "threshold" : 0.15,
+    "precision" : 0.0499,
+    "recall" : 0.6484,
+    "f1Score" : 0.0926
+  }, {
+    "threshold" : 0.2,
+    "precision" : 0.0528,
+    "recall" : 0.5087,
+    "f1Score" : 0.0957
+  }, {
+    "threshold" : 0.25,
+    "precision" : 0.051,
+    "recall" : 0.3392,
+    "f1Score" : 0.0887
+  }, {
+    "threshold" : 0.3,
+    "precision" : 0.0499,
+    "recall" : 0.2195,
+    "f1Score" : 0.0814
+  }, {
+    "threshold" : 0.35,
+    "precision" : 0.0513,
+    "recall" : 0.1397,
+    "f1Score" : 0.075
+  }, {
+    "threshold" : 0.4,
+    "precision" : 0.0519,
+    "recall" : 0.0873,
+    "f1Score" : 0.0651
+  }, {
+    "threshold" : 0.45,
+    "precision" : 0.0577,
+    "recall" : 0.0549,
+    "f1Score" : 0.0563
+  }, {
+    "threshold" : 0.5,
+    "precision" : 0.0714,
+    "recall" : 0.0399,
+    "f1Score" : 0.0512
+  }, {
+    "threshold" : 0.55,
+    "precision" : 0.1091,
+    "recall" : 0.0299,
+    "f1Score" : 0.047
+  }, {
+    "threshold" : 0.6,
+    "precision" : 0.1786,
+    "recall" : 0.0249,
+    "f1Score" : 0.0438
+  }, {
+    "threshold" : 0.65,
+    "precision" : 0.2222,
+    "recall" : 0.015,
+    "f1Score" : 0.028
+  }, {
+    "threshold" : 0.7,
+    "precision" : 0.3846,
+    "recall" : 0.0125,
+    "f1Score" : 0.0242
+  }, {
+    "threshold" : 0.75,
+    "precision" : 0.5,
+    "recall" : 0.005,
+    "f1Score" : 0.0099
+  }, {
+    "threshold" : 0.8,
+    "precision" : 0.0,
+    "recall" : 0.0,
+    "f1Score" : 0.0
+  }, {
+    "threshold" : 0.85,
+    "precision" : 0.0,
+    "recall" : 0.0,
+    "f1Score" : 0.0
+  }, {
+    "threshold" : 0.9,
+    "precision" : 0.0,
+    "recall" : 0.0,
+    "f1Score" : 0.0
+  } ]
+}

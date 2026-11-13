@@ -1,0 +1,11 @@
+{
+  "Device_Used" : 8.0E-4,
+  "Location" : 7.0E-4,
+  "Transaction_Type" : 5.0E-4,
+  "Payment_Method" : 4.0E-4,
+  "Transaction_Amount" : 0.0,
+  "Time_of_Transaction" : 0.0,
+  "Previous_Fraudulent_Transactions" : 0.0,
+  "Account_Age" : 0.0,
+  "Number_of_Transactions_Last_24H" : 0.0
+}

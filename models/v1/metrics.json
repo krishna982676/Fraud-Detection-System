@@ -1,0 +1,154 @@
+{
+  "modelType" : "RandomForest (50 trees, maxDepth 15)",
+  "algorithm" : "RandomForest (50 trees, maxDepth 15)",
+  "trainedAt" : "2026-11-02T19:56:32.942342",
+  "datasetRows" : 284807,
+  "decisionThreshold" : 0.9,
+  "accuracy" : 0.9994,
+  "precision" : 0.8868,
+  "recall" : 0.6267,
+  "f1" : 0.7344,
+  "f1Score" : 0.7344,
+  "rocAuc" : 0.9723,
+  "prAuc" : 0.776,
+  "confusionMatrix" : [ [ 56881, 6 ], [ 28, 47 ] ],
+  "confusionMatrixText" : "                 Predicted Legit    Predicted Fraud\nActual Legit:             56,881                  6\nActual Fraud:                 28                 47\n",
+  "baselineAlgorithm" : "J48 Decision Tree",
+  "baselineJ48Accuracy" : 0.9983,
+  "baselineJ48Precision" : 0.4155,
+  "baselineJ48Recall" : 0.7867,
+  "baselineJ48F1" : 0.5438,
+  "baselineJ48RocAuc" : 0.9031,
+  "logisticAlgorithm" : "Logistic Regression",
+  "baselineLogisticAccuracy" : 0.9969,
+  "baselineLogisticPrecision" : 0.276,
+  "baselineLogisticRecall" : 0.8133,
+  "baselineLogisticF1" : 0.4122,
+  "baselineLogisticRocAuc" : 0.9823,
+  "trivialAccuracy" : 0.9987,
+  "trivialPrecision" : 0.0,
+  "trivialRecall" : 0.0,
+  "trivialF1" : 0.0,
+  "thresholdSweep" : [ {
+    "threshold" : 0.05,
+    "precision" : 0.0099,
+    "recall" : 0.9423,
+    "f1Score" : 0.0196
+  }, {
+    "threshold" : 0.1,
+    "precision" : 0.0222,
+    "recall" : 0.8846,
+    "f1Score" : 0.0434
+  }, {
+    "threshold" : 0.15,
+    "precision" : 0.0526,
+    "recall" : 0.8462,
+    "f1Score" : 0.0991
+  }, {
+    "threshold" : 0.2,
+    "precision" : 0.0782,
+    "recall" : 0.8269,
+    "f1Score" : 0.1429
+  }, {
+    "threshold" : 0.25,
+    "precision" : 0.1331,
+    "recall" : 0.8269,
+    "f1Score" : 0.2293
+  }, {
+    "threshold" : 0.3,
+    "precision" : 0.177,
+    "recall" : 0.8269,
+    "f1Score" : 0.2915
+  }, {
+    "threshold" : 0.35,
+    "precision" : 0.2625,
+    "recall" : 0.8077,
+    "f1Score" : 0.3962
+  }, {
+    "threshold" : 0.4,
+    "precision" : 0.3231,
+    "recall" : 0.8077,
+    "f1Score" : 0.4615
+  }, {
+    "threshold" : 0.45,
+    "precision" : 0.42,
+    "recall" : 0.8077,
+    "f1Score" : 0.5526
+  }, {
+    "threshold" : 0.5,
+    "precision" : 0.4659,
+    "recall" : 0.7885,
+    "f1Score" : 0.5857
+  }, {
+    "threshold" : 0.55,
+    "precision" : 0.519,
+    "recall" : 0.7885,
+    "f1Score" : 0.626
+  }, {
+    "threshold" : 0.6,
+    "precision" : 0.6029,
+    "recall" : 0.7885,
+    "f1Score" : 0.6833
+  }, {
+    "threshold" : 0.65,
+    "precision" : 0.6613,
+    "recall" : 0.7885,
+    "f1Score" : 0.7193
+  }, {
+    "threshold" : 0.7,
+    "precision" : 0.6964,
+    "recall" : 0.75,
+    "f1Score" : 0.7222
+  }, {
+    "threshold" : 0.75,
+    "precision" : 0.6909,
+    "recall" : 0.7308,
+    "f1Score" : 0.7103
+  }, {
+    "threshold" : 0.8,
+    "precision" : 0.7255,
+    "recall" : 0.7115,
+    "f1Score" : 0.7184
+  }, {
+    "threshold" : 0.85,
+    "precision" : 0.7609,
+    "recall" : 0.6731,
+    "f1Score" : 0.7143
+  }, {
+    "threshold" : 0.9,
+    "precision" : 0.9394,
+    "recall" : 0.5962,
+    "f1Score" : 0.7294
+  } ],
+  "featureImportances" : {
+    "V17" : 0.326,
+    "V14" : 0.3201,
+    "V10" : 0.3021,
+    "V12" : 0.2986,
+    "V11" : 0.2694,
+    "V16" : 0.2641,
+    "V4" : 0.2498,
+    "V3" : 0.2427,
+    "V7" : 0.229,
+    "V18" : 0.1897,
+    "V2" : 0.1814,
+    "V21" : 0.1773,
+    "V9" : 0.1763,
+    "V5" : 0.1507,
+    "V27" : 0.1494,
+    "V1" : 0.1327,
+    "V6" : 0.1293,
+    "V8" : 0.1254,
+    "V28" : 0.1164,
+    "V19" : 0.0838,
+    "Amount" : 0.0734,
+    "V20" : 0.0659,
+    "V23" : 0.054,
+    "V25" : 0.027,
+    "V22" : 0.0186,
+    "V24" : 0.0104,
+    "V15" : 0.0045,
+    "V13" : 0.0,
+    "V26" : 0.0
+  }
+}

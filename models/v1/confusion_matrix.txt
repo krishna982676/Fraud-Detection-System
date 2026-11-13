@@ -1,0 +1,5 @@
+=== TEST SET CONFUSION MATRIX: Model A (creditcard.csv) ===
+                 Predicted Legit    Predicted Fraud
+Actual Legit:             56,881                  6
+Actual Fraud:                 28                 47
+

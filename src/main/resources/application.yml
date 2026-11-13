@@ -1,0 +1,138 @@
+server:
+  port: 8080
+  shutdown: graceful
+
+spring:
+  application:
+    name: sentinelx-engine
+  datasource:
+    url: ${DB_URL:jdbc:h2:file:./data/frauddb;MODE=PostgreSQL;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1}
+    username: ${DB_USER:sa}
+    password: ${DB_PASSWORD:}
+    driver-class-name: ${DB_DRIVER:org.h2.Driver}
+  jpa:
+    database-platform: ${JPA_PLATFORM:org.hibernate.dialect.H2Dialect}
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+  mail:
+    host: ${SMTP_HOST:localhost}
+    port: ${SMTP_PORT:1025}
+    username: ${SMTP_USER:}
+    password: ${SMTP_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+# Fraud Engine Scoring Defaults
+fraud:
+  detection:
+    threshold: 0.70
+    medium-threshold: 0.40
+    model-path: models/fraud.model
+    dataset:
+      synthetic-rows: 20000
+      fraud-ratio: 0.02
+      csv-path: ""
+    rules:
+      amount-multiplier-threshold: 10.0
+      impossible-travel-km: 2000.0
+      high-velocity-24h: 15
+      night-hour-start: 1
+      night-hour-end: 5
+
+# SentinelX Multi-Tenant SaaS Configuration
+sentinelx:
+  app-url: ${APP_URL:http://localhost:3000}
+  api-url: ${API_URL:http://localhost:8080}
+  security:
+    jwt:
+      secret: ${JWT_SECRET:sentinelx-super-secret-jwt-key-must-be-at-least-256-bits-long-for-hmac-sha-256-production-use!}
+      access-token-expiration-ms: 900000 # 15 minutes
+      refresh-token-expiration-ms: 604800000 # 7 days
+    lockout:
+      max-failed-attempts: 5
+      lock-duration-minutes: 15
+  billing:
+    provider: ${BILLING_PROVIDER:RAZORPAY} # RAZORPAY, STRIPE, PADDLE
+    razorpay:
+      key-id: ${RAZORPAY_KEY_ID:rzp_test_placeholder_key}
+      key-secret: ${RAZORPAY_KEY_SECRET:rzp_test_placeholder_secret}
+      webhook-secret: ${RAZORPAY_WEBHOOK_SECRET:rzp_webhook_secret_test}
+      plan-ids:
+        starter: ${RAZORPAY_PLAN_STARTER:plan_starter_monthly}
+        growth: ${RAZORPAY_PLAN_GROWTH:plan_growth_monthly}
+        enterprise: ${RAZORPAY_PLAN_ENTERPRISE:plan_enterprise_custom}
+  plans:
+    trial:
+      name: "30-Day Enterprise Trial"
+      monthly-quota: 10000
+      trial-days: 30
+      rate-limit-per-minute: 120
+      features:
+        - "Full ML Engine & Rule Builder"
+        - "Real-Time WebSocket Feed"
+        - "10,000 Free Events"
+        - "Up to 5 Team Seats"
+    starter:
+      name: "Starter"
+      price-inr-monthly: 7999
+      price-inr-yearly: 79990
+      monthly-quota: 50000
+      rate-limit-per-minute: 300
+      features:
+        - "50,000 Transactions / month"
+        - "Standard ML + Rule Engine"
+        - "Webhook & REST API Access"
+        - "5 Team Members"
+        - "Email Support"
+    growth:
+      name: "Growth"
+      price-inr-monthly: 24999
+      price-inr-yearly: 249990
+      monthly-quota: 500000
+      rate-limit-per-minute: 1200
+      features:
+        - "500,000 Transactions / month"
+        - "Custom ML Threshold Calibration"
+        - "High-Concurrency Stream API"
+        - "Unlimited Team Members"
+        - "Priority SLA & Dedicated Slack"
+    enterprise:
+      name: "Enterprise"
+      price-inr-monthly: 0
+      price-inr-yearly: 0
+      monthly-quota: 10000000
+      rate-limit-per-minute: 5000
+      features:
+        - "Custom Volume & Edge Deploy"
+        - "Dedicated ML Model Fine-Tuning"
+        - "24/7 Security Operations Center"
+        - "Custom Data Retention & BAA"
+
+management:
+  health:
+    mail:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+    com.frauddetection: INFO
+    org.hibernate: WARN

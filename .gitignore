@@ -1,0 +1,23 @@
+# Datasets & data dir
+data/
+*.csv
+*.csv.zip
+*.zip
+
+# Build artifacts
+target/
+*.class
+
+# IDE & OS files
+.DS_Store
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+

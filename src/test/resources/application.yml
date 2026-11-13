@@ -1,0 +1,83 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: sentinelx-engine-test
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    show-sql: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+fraud:
+  detection:
+    threshold: 0.70
+    medium-threshold: 0.40
+    model-path: models/fraud.model
+    dataset:
+      synthetic-rows: 1000
+      fraud-ratio: 0.02
+      csv-path: ""
+    rules:
+      amount-multiplier-threshold: 10.0
+      impossible-travel-km: 2000.0
+      high-velocity-24h: 15
+      night-hour-start: 1
+      night-hour-end: 5
+
+sentinelx:
+  app-url: http://localhost:3000
+  api-url: http://localhost:8080
+  security:
+    jwt:
+      secret: testing-sentinelx-jwt-secret-key-must-be-very-long-and-secure-for-hmac-sha-256-test
+      access-token-expiration-ms: 900000
+      refresh-token-expiration-ms: 604800000
+    lockout:
+      max-failed-attempts: 5
+      lock-duration-minutes: 15
+  billing:
+    provider: RAZORPAY
+    razorpay:
+      key-id: rzp_test_dummy
+      key-secret: rzp_test_dummy_secret
+      webhook-secret: rzp_test_dummy_webhook_secret
+      plan-ids:
+        starter: plan_starter_test
+        growth: plan_growth_test
+        enterprise: plan_enterprise_test
+  plans:
+    trial:
+      name: "30-Day Enterprise Trial"
+      monthly-quota: 10000
+      trial-days: 30
+      rate-limit-per-minute: 120
+    starter:
+      name: "Starter"
+      price-inr-monthly: 7999
+      price-inr-yearly: 79990
+      monthly-quota: 50000
+      rate-limit-per-minute: 300
+    growth:
+      name: "Growth"
+      price-inr-monthly: 24999
+      price-inr-yearly: 249990
+      monthly-quota: 500000
+      rate-limit-per-minute: 1200
+    enterprise:
+      name: "Enterprise"
+      price-inr-monthly: 0
+      price-inr-yearly: 0
+      monthly-quota: 10000000
+      rate-limit-per-minute: 5000
